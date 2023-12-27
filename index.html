@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="./assets/images/icons8-globe-africa-100.png">
+  <title>Work Flash</title>
+
+
+  <!-- Button icon -->
+  <script src="https://use.fontawesome.com/8d9c4a3c5b.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/index.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+</head>
+
+<body>
+  <div id="page-wraper">
+    <!-- Sidebar Menu -->
+    <div class="responsive-nav">
+      <i class="fa fa-bars" id="menu-toggle"></i>
+      <div id="menu" class="menu">
+        <i class="fa fa-times" id="menu-close"></i>
+        <div class="container">
+          <div class="" style="border-top: solid 1px rgb(239, 103, 103); padding: 3% 30%; background-color: white;">
+            <a href="#"><img src="assets/images/Logo_mspp.jpg" alt="" /></a>
+          </div>
+          <div class="" style="border-top: solid 1px rgb(239, 103, 103); padding: 3% 30%; background-color: white;">
+            <a href="#"><img src="assets/images/world_bank.jpeg" width="100px" alt="" /></a>
+          </div>
+          <nav class="main-nav" role="navigation">
+            <ul class="main-menu">
+              <li><a href="#section1">Projet PROSYS/POST-SEISME</a></li>
+              <button onclick="setPoint()">Project en cours</button>
+              <li><a href="#section2">Apropos de nous</a></li>
+              <li><a href="#section4">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="social-network">
+            <ul class="soial-icons">
+              <li>
+                <a href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-rss"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="copyright-text">
+            <p>Copyright @2022 UGP</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="" style="position: absolute; width: 100%; background-color: black; color: yellow; height: 30px; font-size: 12px;">
+      <div class="text-center">
+          <span class=""> SITE EN CONSTRUCTION</span>
+      </div>
+  </div>
+
+    <!-- Header Start -->
+    <div class="jumbotron">
+      <div class="container text-center mt-5 pt-5">
+        <h4 class="">UGP/MSPP</h4>
+        <h4 class="shineWhite">PROJET PROSYS</h4>
+        <h5>TRAVAUX DE RÉHABILITATION POST SÉISME (14 AOÛT 2021) DANS LES INSTITUTIONS SANITAIRES DANS LES DÉPARTEMENTS
+          DES NIPPES, DU SUD ET DE
+          LA GRANDE-ANSE
+        </h5>
+        <nav class="" role="navigation">
+          <ul class="main-menu">
+            <li><a href="#section1" class="btn primary" style="background-color: aliceblue;">Visite</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- Header End -->
+
+    <div class=" section" style="margin-bottom: 90px;" data-section="section1">
+      <div class="text-center">
+        <!--Button to top-->
+        <button onclick="topFunction()" id="buttonToTop" title="Go to top"><i class="fa fa-arrow-up"
+            aria-hidden="true"></i></button>
+        <div>
+          <br />
+          Considérant les orientations et les directives d’intervention sur les trois départements
+          les plus sévèrement touchés par le séisme du 14 août 2021. Le projet PROSYS a retenu une trentaine de sites.
+        </div>
+
+        <div>
+          <input placeholder="Entrer un critere" id="search" />
+          <button onclick="search()">Recherche</button>
+        </div>
+        <section class="container-fluid">
+          <div class="container pt-5">
+            <div class="row">
+
+              <div id="map" style="width: 100%; position: relative;"
+                class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+                tabindex="0">
+                <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
+                  <div class="leaflet-pane leaflet-tile-pane">
+                    <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                      <div class="leaflet-tile-container leaflet-zoom-animated"
+                        style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <img alt="" src="https://tile.openstreetmap.org/13/4093/2723.png"
+                          class="leaflet-tile leaflet-tile-loaded" />
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <br />
+
+        <div class="container-fluid row text-center">
+          <div class="col-md-4">
+            <div class="card service-item">
+              <img class="card-img-top" src="./assets/images/photo_carte_departement.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="">Sud</h4>
+                <p class="card-text">Ce document présente une description (générale, technique sauvegarde sociale et
+                  environnementale), de chaque institution visitée dans le Sud ainsi que les solutions proposées et les
+                  coûts approximatifs pour chaque site. </p>
+                <a href="./pdf/Manuel du PES Lancement 1er Septembre 2016.pdf" class="btn btn-primary">Modele </a> 
+                  <br>
+                  <br>
+                  <a href="./pdf/Manuel du PES Lancement 1er Septembre 2016.pdf" class="btn btn-primary">Modele
+                    </a>
+                    <br>
+                    <br>
+                    <a href="./pdf/Manuel du PES Lancement 1er Septembre 2016.pdf" class="btn btn-primary">Modele
+                      </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card service-item">
+              <img class="card-img-top" src="./assets/images/photo_carte_departement.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="">Nippes</h4>
+                <p class="card-text">Ce document présente une description (générale, technique sauvegarde sociale et
+                  environnementale), de chaque institution visitée dans les Nippes ainsi que les solutions proposées et
+                  les coûts approximatifs pour chaque site. </p>
+                <a href="./pdf/Nippes Evaluation finale - Prosys 20 11 2023.pdf" class="btn btn-primary">Rapport Global
+                  Nippes</a>
+                  <br>
+                  <br>
+                  <a href="./pdf/Screening Nippes 2023 - Prosys.pdf" class="btn btn-primary">Screening Global
+                    Nippes</a>
+                    <br>
+                    <br>
+                    <a href="./pdf/Infos supplementaires Nippes.pdf" class="btn btn-primary">Infos supplementaires
+                      Nippes</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card service-item">
+              <img class="card-img-top" src="./assets/images/photo_carte_departement.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="">Grande Anse</h4>
+                <p class="card-text">
+                  Ce document présente une description (générale, technique sauvegarde sociale et environnementale), de
+                  chaque institution visitée dans la Grande Anse ainsi que les solutions proposées et les coûts
+                  approximatifs pour chaque site.
+                </p>
+                <a href="./pdf/Grande anse Evaluation finale - Prosys 20 11 23.pdf" class="btn btn-primary">Rapport
+                  Global Grande anse</a>
+                  <br>
+                  <br>
+                  <a href="./pdf/Screening Grande anse 2023 - Prosys.pdf" class="btn btn-primary">Screening 
+                    Global Grande anse</a>
+                    <br>
+                    <br>
+                    <a href="./pdf/Grande anse Evaluation finale - Prosys 20 11 23.pdf" class="btn btn-primary">Rapport
+                      Global Grande anse</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <section class="section benefits" data-section="section2" style="margin-bottom: 90px;">
+      <div class="container">
+        <div>
+          <!-- <h1>Mersan</h1> -->
+          <video width="100%" height="360" controls muted style="background-color: black;" title="Mersan">
+            <source src="https://drive.google.com/uc?export=download&id=1ZzOSvuf3okQcQ_OdczU_6F_otwKKb40j"
+              type='video/mp4'>
+            
+          </video>
+          <p> Dégats causés par le tremblement de terre du 14 Aout 2021 dans le CS de Mersan (Département du sud).</p>
+        </div>
+        <div class="section-heading">
+          <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Apropos de l'UGP/MSPP</h6>
+          <h2>LE PROJET PROSYS</h2>
+          <div class="line-dec"></div>
+          <span>Le Projet de renforcement de la santé primaire et de la surveillance épidémiologique en Haïti
+            est une initiative du gouvernement haïtien financée par la Banque mondiale et Fonds fiduciaire
+            Global Financing Facility (HRITF). Ce projet est mis en œuvre par l’Unité de Gestion de projet
+            (UGP) du Ministère de la Santé publique et de la population (MSPP). La mise en oeuvre de l' ensensemble des
+            travaux d' infrastructure est prise en charge par l’équipe technique chargée des infrastructures de l’UGP.
+            En fonction des dégâts observés, dans chacun des départements concernés, les évaluations proposent trois
+            catégories d’intervention :la réhabilitation, la reconstruction ou la finalisation de construction.</span>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="service-item">
+              <div class="first-service-icon service-icon"></div>
+              <h4>Objectifs</h4>
+              <p>
+                Les objectifs du projet visent à aider le pays (i) à accroître l&#39;accès et l’utilisation des services
+                de
+                santé primaires dans zones géographiques spécifiques et (ii) à renforcer la capacité de
+                surveillance épidémiologique. Le programme est structuré autour des quatre (4) composantes
+                suivantes : (1) renforcement de la prestation de services de soins de santé primaires ; (2)
+                renforcement de la surveillance et du contrôle des maladies infectieuses ; (3) renforcement de
+                la capacité de Gestion du MSPP ; et (4) capacité de riposte en cas de situation d’urgence ou de
+                catastrophe (CERC).
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="service-item">
+              <div class="second-service-icon service-icon"></div>
+              <h4>CERC</h4>
+              <p>
+                La Composante CERC sera mise en œuvre par l’UGP/MSPP dans l’objectif de fournir une
+                réponse immédiate à la crise provoquée par les dégâts causés par le séisme du 14 août 2021.
+                Elle financera l’achat des équipements hospitaliers, la réhabilitation et la reconstruction des
+                établissements sanitaires affectés par cette catastrophe naturelle. Les trois (3) départements
+                bénéficiaires sont le Sud, la Grande-Anse et les Nippes. Toutes les activités susceptibles de
+                causer des impacts négatifs importants et complexes sur le milieu naturel et le milieu de vie ne
+                seront pas éligibles au financement de la composante CERC.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section contact-me" data-section="section4">
+      <div class="container">
+        <div class="section-heading">
+          <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Contactez-nous</h6>
+          <h2>L’équipe technique chargée des infrastructures de l’UGP</h2>
+          <div class="line-dec"></div>
+          <span>L’équipe technique chargée des infrastructures de l’UGP est constituée de responsables de sauvegardes
+            environnementale et sociale, d' ingénieurs et d' un architecte.</span>
+        </div>
+        <div class="row">
+          <div class="right-content">
+            <div class="container">
+              <form id="contact" action="" method="post">
+                <div class="row">
+                  <div class="col-md-6">
+                    <fieldset>
+                      <input name="name" type="text" class="form-control" id="name" placeholder="Your name..."
+                        required="" />
+                    </fieldset>
+                  </div>
+                  <div class="col-md-6">
+                    <fieldset>
+                      <input name="email" type="text" class="form-control" id="email" placeholder="Your email..."
+                        required="" />
+                    </fieldset>
+                  </div>
+                  <div class="col-md-12">
+                    <fieldset>
+                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject..."
+                        required="" />
+                    </fieldset>
+                  </div>
+                  <div class="col-md-12">
+                    <fieldset>
+                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..."
+                        required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-md-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="button">
+                        Send Message
+                      </button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <footer class="footer">
+        <div class="social-network">
+          <ul class="soial-icons">
+            <li>
+              <a href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-rss"></i></a>
+            </li>
+          </ul>
+        </div>
+        <hr style="color: white; width: 10px">
+        <div class="copyright-text">
+          <p>Copyright @2023 _UGP</p>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <!-- Fast Counter-up -->
+  <script>
+    jQuery(document).ready(function ($) {
+      $('.counter').counterUp({
+        delay: 10,
+        time: 1000
+      });
+    });
+  </script>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+
+
+  <script src="assets/js/lib/counterup/counterup.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script src="./assets/js/main.js"></script>
+  <script>
+    //according to loftblog tut
+
+
+    $(".main-menu li:first").addClass("active");
+
+    var showSection = function showSection(section, isAnimate) {
+      var direction = section.replace(/#/, ""),
+        reqSection = $(".section").filter(
+          '[data-section="' + direction + '"]'
+        ),
+        reqSectionPos = reqSection.offset().top - 0;
+
+      if (isAnimate) {
+        $("body, html").animate(
+          {
+            scrollTop: reqSectionPos
+          },
+          800
+        );
+      } else {
+        $("body, html").scrollTop(reqSectionPos);
+      }
+    };
+
+    var checkSection = function checkSection() {
+      $(".section").each(function () {
+        var $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+        if (topEdge < wScroll && bottomEdge > wScroll) {
+          var currentId = $this.data("section"),
+            reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+          reqLink
+            .closest("li")
+            .addClass("active")
+            .siblings()
+            .removeClass("active");
+        }
+      });
+    };
+
+    $(".main-menu").on("click", "a", function (e) {
+      e.preventDefault();
+      showSection($(this).attr("href"), true);
+    });
+
+    $(window).scroll(function () {
+      checkSection();
+    });
+  </script>
+  <!-- <script src="./assets/js/script.js"></script> -->
+  <script src="./test.js"></script>
+  <script src="./data.js"></script>
+  <script src="./grande_anse.js"></script>
+  <script src="./nippes.js"></script>
+  <script src="./sud.js"></script>
+  <script src="./assets/js/ugp.js"></script>
+
+</body>
+
+</html>
