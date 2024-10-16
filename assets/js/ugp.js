@@ -30,16 +30,23 @@ function getPopupContent(element) {
         + '<div>Code du site:' + element['properties']['Code Institution'] + '</div>'
         + '<div> <hr></div>'
         + `<div><a href="./${element['properties']['pdf']}" target="_blank">Screening</a></div>`
-        + `<div><a href="./${element['properties']['photo']}" target="_blank">Photo</a></div>`
-        + `<div><a href="./${element['properties']['notaire']}" target="_blank">Acte Notarie</a></div>`
-        + `<div><a href="./${element['properties']['rapport']}" target="_blank">Rapport</a></div>`
-        + `<div><a href="./${element['properties']['devis']}" target="_blank">Devis</a></div>`
-        + `<div><a href="./${element['properties']['dessin']}" target="_blank">Plan d\'Architecture</a></div>`
+        + `<div><a href="${element['properties']['photo']}" target="_blank">Photo</a></div>`
+        + `<div><a href="${element['properties']['notaire']}" target="_blank">Acte Notarie</a></div>`
+        + `<div><a href="${element['properties']['rapport']}" target="_blank">Rapport</a></div>`
+        + `<div><a href="${element['properties']['devis']}" target="_blank">Devis</a></div>`
+        + `<div><a href="${element['properties']['dessin']}" target="_blank">Plan d\'Architecture</a></div>`
         + '</b><br />';
 
-    };
+};
 
 
+
+// + `<div><a href="./${element['properties']['pdf']}" target="_blank">Screening</a></div>`
+// + `<div><a href="./${element['properties']['photo']}" target="_blank">Photo</a></div>`
+// + `<div><a href="./${element['properties']['notaire']}" target="_blank">Acte Notarie</a></div>`
+// + `<div><a href="./${element['properties']['rapport']}" target="_blank">Rapport</a></div>`
+// + `<div><a href="./${element['properties']['devis']}" target="_blank">Devis</a></div>`
+// + `<div><a href="./${element['properties']['dessin']}" target="_blank">Plan d\'Architecture</a></div>`
 
 fillMap(coords);
 
@@ -106,43 +113,43 @@ function search() {
     clearMarkers()
     if (sr != null && sr.length > 0) {
         temp = [];
-        coords.forEach(e=>{
-            var crit =  (e['properties']['Arrondissement'] + e['properties']['Commune'] + e['properties']["Categorie de l'IS"] + e['properties']['Nom du site'] + "").toLowerCase();
-            if(crit.includes(sr.toLowerCase())){
+        coords.forEach(e => {
+            var crit = (e['properties']['Arrondissement'] + e['properties']['Commune'] + e['properties']["Categorie de l'IS"] + e['properties']['Nom du site'] + "").toLowerCase();
+            if (crit.includes(sr.toLowerCase())) {
                 temp.push(e)
                 //console.log("search data: ", e)
             }
         })
         fillMap(temp)
-    }else{
+    } else {
         fillMap(coords)
     }
 
 }
 
-function setPoint(){ 
+function setPoint() {
     points.forEach(element => {
         var LeafIcon = L.Icon.extend({
             options: {
-                iconSize:     [38, 60],
-                shadowSize:   [50, 64],
+                iconSize: [38, 60],
+                shadowSize: [50, 64],
                 //iconAnchor:   [22, 94],
                 shadowAnchor: [4, 62],
-                popupAnchor:  [0, 0]
+                popupAnchor: [0, 0]
             }
         });
 
-    var greenIcon = new LeafIcon({iconUrl: './assets/images/marker.png'});
+        var greenIcon = new LeafIcon({ iconUrl: './assets/images/marker.png' });
 
-    const marker = L.marker([element['properties']['Latitude'], element['properties']['Longitude']],{icon: greenIcon})
-        .addTo(map)
-        .on('click', function () {
-            this.openPopup();
-        })
-        .on('mouseover', function () {
-            this.openPopup();
-        })
-        .bindPopup(getPopupContent(element));
-});
+        const marker = L.marker([element['properties']['Latitude'], element['properties']['Longitude']], { icon: greenIcon })
+            .addTo(map)
+            .on('click', function () {
+                this.openPopup();
+            })
+            .on('mouseover', function () {
+                this.openPopup();
+            })
+            .bindPopup(getPopupContent(element));
+    });
 
 }
